@@ -1,5 +1,15 @@
+#!/usr/bin/env bash
+
+set -e 
+
+#folders
+sudo mkdir -p /etc/nixos
+mkdir -p ~/.config/home-manager
+mkdir -p ~/.config/kitty
+mkdir -p ~/.config/hypr
+
 # main files
-ln -sf ~/nixos-dots/configuration.nix /etc/nixos/configuration.nix
+sudo ln -sf ~/nixos-dots/configuration.nix /etc/nixos/configuration.nix
 ln -sf ~/nixos-dots/home.nix ~/.config/home-manager/home.nix
 
 # kitty
@@ -15,3 +25,7 @@ ln -sf ~/nixos-dots/hypr/keybindings.lua ~/.config/hypr/keybindings.lua
 ln -sf ~/nixos-dots/hypr/monitors.lua ~/.config/hypr/monitors.lua
 ln -sf ~/nixos-dots/hypr/permissions.lua ~/.config/hypr/permissions.lua
 ln -sf ~/nixos-dots/hypr/windows.lua ~/.config/hypr/windows.lua
+
+#apply things
+sudo nixos-rebuild switch
+home-manager switch
