@@ -1,0 +1,1 @@
+/home/ghosty/.config/home-manager/home.nix
