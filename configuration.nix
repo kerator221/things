@@ -5,7 +5,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./happ-nixos/happ-module.nix
+      #./happ-nixos/happ-module.nix
     ];
 
   boot.loader = {
