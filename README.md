@@ -8,3 +8,9 @@ sudo nixos-rebuild switch --flake .#nixos
 chmod +x install.sh  
 ./install.sh  
 
+TODO LIST:  
+* желательно написать бар на quickshell
+* избавиться от install.sh
+* убрать barebones вид системы и привести к одному стилю и цветовой палитре
+* ээээээээээээээ скачать армяне
+
