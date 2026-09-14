@@ -7,10 +7,14 @@ set -e
 #mkdir -p ~/.config/home-manager
 mkdir -p ~/.config/kitty
 mkdir -p ~/.config/hypr
+mkdir -p ~/images/wallpapers
 
 # main files
 #sudo ln -sf ~/nixos-dots/configuration.nix /etc/nixos/configuration.nix
 #ln -sf ~/nixos-dots/home.nix ~/.config/home-manager/home.nix
+
+#wallpapers are hardcoded now maybe later i need to rewrite them 
+ln -sf ~/nixos-dots/wallpaper.png ~/images/wallpapers/wallpaper.png
 
 # kitty
 ln -sf ~/nixos-dots/kitty.conf ~/.config/kitty/kitty.conf
