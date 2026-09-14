@@ -82,7 +82,7 @@
     };
   };
    
-  services.happ.enable = true;
+  #services.happ.enable = true;
   services.blueman.enable = true;
   services.gvfs.enable = true;
   # Enable touchpad support (enabled default in most desktopManager).
