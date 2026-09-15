@@ -2,6 +2,10 @@
 ----  SHORTCUTS  ----
 ---------------------
 
+local file = io.open(os.getenv("HOME") .. "/.config/tg-ws-proxy/secret.txt", "r")
+secret = file:read("*l")
+file:close()
+
 -- Set programs that you use
 terminal    = "kitty"
 fileManager = "dolphin"
@@ -18,7 +22,7 @@ cliphist    = "cliphist list | rofi -dmenu -display-columns 2 | cliphist decode 
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function () 
-    hl.exec_cmd("nix run github:pialtor/tg-ws-proxy-flake -- --port 1080 --secret c7359dde1872b254740149e0475c5b0b")
+    hl.exec_cmd("nix run github:pialtor/tg-ws-proxy-flake -- --port 1080 --secret " .. secret)
     hl.exec_cmd("wl-paste --type text --watch cliphist store")
     hl.exec_cmd("wl-paste --type image --watch cliphist store")
     hl.exec_cmd("waybar & hyprpaper")
