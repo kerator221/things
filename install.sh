@@ -29,7 +29,7 @@ secret=$(openssl rand -hex 16)
 mkdir -p ~/.config/tg-ws-proxy
 echo "$secret" > ~/.config/tg-ws-proxy/secret.txt
 
-# hardware
+# hardware 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)" #finding script location aka absolute path
 
 if [[ ! -f "$REPO_DIR/hardware-configuration.nix" ]]; then #uhm i kinda like it lol
@@ -38,6 +38,13 @@ if [[ ! -f "$REPO_DIR/hardware-configuration.nix" ]]; then #uhm i kinda like it 
 else
     echo "using existing one"
 fi
+
+echo "installing home-manager"
+nix-channel --add https://github.com/nix-community/home-manager/archive/release-26.05.tar.gz home-manager
+nix-channel --update
+nix-shell '' -A install
+echo "[ -f ~/.nix-profile/etc/profile.d/hm-session-vars.sh ] && . ~/.nix-profile/etc/profile.d/hm-session-vars.sh" > ~/.bashrc
+echo "home-manager succesfully installed at .config/home-manager" 
 
 sudo nixos-rebuild switch --flake "$REPO_DIR#nixos"
 
