@@ -1,10 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, username, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;   
 
-  home.username = "ghosty";
-  home.homeDirectory = "/home/ghosty";
+  home.username = username;
+  home.homeDirectory = "/home/${username}";
   home.stateVersion = "26.05";
 
   home.packages = with pkgs; [

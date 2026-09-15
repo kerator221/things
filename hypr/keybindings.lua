@@ -18,7 +18,7 @@ hl.bind("ALT + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
 
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(appMenu))
 
-hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("hyprshot -s -m region -o /home/ghosty/images/screenshots"))
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("hyprshot -s -m region -o " .. os.getenv("HOME") .. "/images/screenshots"))
 hl.bind("Print", hl.dsp.exec_cmd("hyprshot -s -m region --clipboard-only"))
 
 -- Move focus with mainMod + arrow keys
