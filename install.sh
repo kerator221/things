@@ -30,6 +30,14 @@ mkdir -p ~/.config/tg-ws-proxy
 echo "$secret" > ~/.config/tg-ws-proxy/secret.txt
 
 # hardware
-#sudo nixos-generate-config --dir "$HOME/nixos-dots" idk lol i think ure already have a hardware config if u starting it from working system
-sudo nixos-rebuild switch --flake path:.#nixos
+REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)" #finding script location aka absolute path
+
+if [[ ! -f "$REPO_DIR/hardware-configuration.nix" ]]; then #uhm i kinda like it lol
+    echo "generating hardware-configuration"
+    sudo nixos-generate-config --dir "$REPO_DIR"
+else
+    echo "using existing one"
+fi
+
+sudo nixos-rebuild switch --flake "$REPO_DIR#nixos"
 
