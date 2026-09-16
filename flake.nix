@@ -19,8 +19,8 @@
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.${username} = { pkgs, ... }: import ./home.nix {
-            inherit pkgs username;
+          home-manager.users.${username} = { config, pkgs, ... }: import ./home.nix {
+            inherit config pkgs username;
           };
         }
       ];
