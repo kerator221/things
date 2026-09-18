@@ -13,6 +13,7 @@ fi
 # folders
 mkdir -p "$HOME/.config/hypr"
 mkdir -p "$HOME/.config/kitty"
+mkdir -p "$HOME/.config/waybar"
 mkdir -p "$HOME/images/wallpapers"
 mkdir -p "$HOME/.config/tg-ws-proxy"
 
@@ -21,6 +22,12 @@ ln -sfn "$REPO_DIR/wallpaper.png" "$HOME/images/wallpapers/wallpaper.png"
 
 # kitty
 ln -sfn "$REPO_DIR/kitty.conf" "$HOME/.config/kitty/kitty.conf"
+
+# waybar
+ln -sfn "$REPO_DIR/waybar/config" "$HOME/.config/waybar/config"
+ln -sfn "$REPO_DIR/waybar/config.sh" "$HOME/.config/waybar/config.sh"
+ln -sfn "$REPO_DIR/waybar/modules.json" "$HOME/.config/waybar/modules.json"
+ln -sfn "$REPO_DIR/waybar/style.css" "$HOME/.config/waybar/style.css"
 
 # hypr
 ln -sfn "$REPO_DIR/hypr/animations.lua" "$HOME/.config/hypr/animations.lua"
