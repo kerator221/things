@@ -1,0 +1,133 @@
+* {
+	font-family: "Segoe UI", "Ubuntu";
+	font-size: 16px;
+	font-weight: 600;
+	text-shadow: none;
+	margin: 0;
+}
+
+#clock {
+	background-color: #000000;
+	border-radius: 24px;
+	padding-left: 15px;
+	padding-right: 15px;
+	opacity: 0.7;
+	transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#clock:hover {
+	font-size: 20px;
+	opacity: 1;
+}
+
+#tray {
+	background-color: #000000;
+	border-radius: 24px;
+	padding-left: 15px;
+	padding-right: 15px;
+	opacity: 0.7;
+}
+
+#tray * {
+	transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+	opacity: 1;
+	margin-left: 4px;
+	margin-right: 4px;
+}
+
+#tray > *:hover {
+	border-radius: 24px;
+	background-color: #3f3f3f;
+}
+
+#workspaces {
+	background-color: #000000;
+	border-radius: 24px;
+	padding-left: 15px;
+	padding-right: 15px;
+	opacity: 0.7;
+	transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#workspaces * {
+	border-radius: 24px;
+}
+
+#workspaces > *:hover {
+	background-color: #ffffff;
+	border-radius: 24px;
+	opacity: 0.5;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+#bubble {
+	background-color: #000000;
+	border-radius: 24px;
+	padding-left: 5px;
+	padding-right: 15px;
+	opacity: 0.7;
+	transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#pulseaudio, #language, #gtools{
+	background-color: #000000;
+	border-radius: 24px;
+	padding-left: 15px;
+	padding-right: 15px;
+	opacity: 0.7;
+	transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#pulseaudio:hover {
+	font-size: 20px;
+	opacity: 1;
+}
+
+#language:hover {
+    opacity: 1;
+	font-size: 20px;
+}
+
+#network:hover {
+	font-size: 20px;
+	opacity: 1;
+}
+
+#gtools * {
+	padding-right: 7px;
+}
+
+#gtools:hover {
+	font-size: 20px;
+	opacity: 1;
+}
+
+#custom-exit {
+	opacity: 0.7;
+	transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#custom-exit:hover {
+	font-size: 20px;
+	opacity: 1;
+}
+
+window#waybar {
+	background-color: rgba(25, 25, 25, 0);
+	border-radius: 6px;
+	color: white;
+}
+
+window#waybar.chromium {
+	background-color: #000000;
+	border: none;
+}
+
+window#waybar.hidden {
+	opacity: 0.2;
+}
+
+window#waybar.termite {
+	background-color: #3f3f3f;
+}
