@@ -161,6 +161,7 @@
       kdePackages.xdg-desktop-portal-kde
       kdePackages.kservice
       gphoto2fs
+      teamspeak6-client
    ];
 
   i18n.defaultLocale = "en_US.UTF-8";
