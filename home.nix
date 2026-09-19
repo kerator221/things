@@ -23,6 +23,7 @@
     quickshell
     openssl
     neohtop
+    vesktop
   ];
   
   xdg.mimeApps = {
