@@ -1,5 +1,5 @@
 {
-  description = "A very basic flake";
+  description = "NixOS config";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
@@ -9,21 +9,23 @@
 
   outputs = inputs@{ self, nixpkgs, home-manager }: 
     let 
-      username = "ghosty";
-    in {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit inputs username; };
-      modules = [ 
-        ./configuration.nix
-        home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.${username} = { config, pkgs, ... }: import ./home.nix {
-            inherit config pkgs username;
-          };
-        }
-      ];
+      username = "ghosty";
+    in 
+    {
+      
+      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs username; };
+        modules = [
+          ./hosts/nixos/configuration.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.${username} = { config, pkgs, ... }: import ./hosts/nixos/home.nix {
+              inherit config pkgs username;
+            };
+          }
+        ];
+      };
     };
-  };
 }
