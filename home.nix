@@ -9,7 +9,6 @@
 
   home.packages = with pkgs; [
     #hyprpaper
-    sticky
     pavucontrol
     p7zip
     xarchiver
@@ -20,11 +19,10 @@
     libreoffice
     brave
     qimgv
-    quickshell
     openssl
     neohtop
   ];
-  
+
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
