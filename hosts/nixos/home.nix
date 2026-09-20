@@ -1,4 +1,4 @@
-{ config, pkgs, username, lib, ... }:
+{ config, pkgs, lib, username, ... }:
 
 {
   home.username = username;
@@ -6,26 +6,26 @@
   home.stateVersion = "26.05";
 
   #hyprland config
-  xdg.configFile."hypr/hyprland.lua".source = ./config/hypr/hyprland.lua;
-  xdg.configFile."hypr/animations.lua".source = ./config/hypr/animations.lua;
-  xdg.configFile."hypr/custom.lua".source = ./config/hypr/custom.lua;
-  xdg.configFile."hypr/decorations.lua".source = ./config/hypr/decorations.lua;
-  xdg.configFile."hypr/keybindings.lua".source = ./config/hypr/keybindings.lua;
-  xdg.configFile."hypr/monitors.lua".source = ./config/hypr/monitors.lua;
-  xdg.configFile."hypr/permissions.lua".source = ./config/hypr/permissions.lua;
-  xdg.configFile."hypr/windows.lua".source = ./config/hypr/windows.lua;
+  xdg.configFile."hypr/hyprland.lua".source = ../../config/hypr/hyprland.lua;
+  xdg.configFile."hypr/animations.lua".source = ../../config/hypr/animations.lua;
+  xdg.configFile."hypr/custom.lua".source = ../../config/hypr/custom.lua;
+  xdg.configFile."hypr/decorations.lua".source = ../../config/hypr/decorations.lua;
+  xdg.configFile."hypr/keybindings.lua".source = ../../config/hypr/keybindings.lua;
+  xdg.configFile."hypr/monitors.lua".source = ../../config/hypr/monitors.lua;
+  xdg.configFile."hypr/permissions.lua".source = ../../config/hypr/permissions.lua;
+  xdg.configFile."hypr/windows.lua".source = ../../config/hypr/windows.lua;
 
   #waybar 
-  xdg.configFile."waybar/config".source = ./config/waybar/config;
-  xdg.configFile."waybar/config.sh".source = ./config/waybar/config.sh;
-  xdg.configFile."waybar/modules.json".source = ./config/waybar/modules.json;
-  xdg.configFile."waybar/style.css".source = ./config/waybar/style.css;
+  xdg.configFile."waybar/config".source = ../../config/waybar/config;
+  xdg.configFile."waybar/config.sh".source = ../../config/waybar/config.sh;
+  xdg.configFile."waybar/modules.json".source = ../../config/waybar/modules.json;
+  xdg.configFile."waybar/style.css".source = ../../config/waybar/style.css;
 
   #kitty
-  xdg.configFile."kitty/kitty.conf".source = ./config/kitty.conf;
+  xdg.configFile."kitty/kitty.conf".source = ../../config/kitty.conf;
 
   #wallpapers
-  home.file."images/wallpapers/wallpaper.png".source = ./config/wallpaper.png;
+  home.file."images/wallpapers/wallpaper.png".source = ../../config/wallpaper.png;
 
   #tg-ws-proxy secret setup
   home.activation = {
