@@ -159,6 +159,10 @@
      enableSSHSupport = true;
    };
 
+  virtualisation.vmVariant = {
+    users.users.${username}.initialPassword = "test";
+  };
+
   # List services that you want to enable:
   services.xserver.enable = true;
   services.blueman.enable = true;
