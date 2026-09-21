@@ -26,6 +26,9 @@
 
   #wallpapers
   home.file."images/wallpapers/wallpaper.png".source = ../../config/wallpaper.png;
+  home.file."images/wallpapers/wallpaper2.png".source = ../../config/wallpaper2.png;
+  home.file."images/wallpapers/wallpaper3.png".source = ../../config/wallpaper3.png;
+  home.file."images/wallpapers/wallpaper4.png".source = ../../config/wallpaper4.png;
 
   #qt5 (ai slop)
   xdg.configFile."qt5ct/colors/Dracula.conf".source = (pkgs.fetchFromGitHub {
