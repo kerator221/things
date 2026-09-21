@@ -8,6 +8,7 @@
     "margin-bottom": -24,
     "passthrough": false, 
     "spacing": 8,
+    "height": 40,
 
     "include": [
         "~/.config/waybar/modules.json"

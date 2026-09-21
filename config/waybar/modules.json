@@ -99,7 +99,8 @@
   },
 
   "hyprland/language": {
-    "format": "{short}"
+    "format": "{short}",
+    "on-click": ""
   },
 
   // Ghosty Group Tray
@@ -123,7 +124,8 @@
   //took from reddit and using ai turned in json syntax
   "custom/notification": {
     "tooltip": false,
-    "format": "{} {icon}",
+    //"format": "{} {icon}",
+    "format": "{icon}",
     "format-icons": {
         "notification": "󱅫 ",
         "none": "󰂚",
