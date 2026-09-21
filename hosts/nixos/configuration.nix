@@ -6,12 +6,17 @@
     [
       ./hardware-configuration.nix
     ];
+    
+  home-manager.backupFileExtension = "backup";
 
   boot.loader = {
     systemd-boot.enable = false;
-    grub.enable = true;
-    grub.device = "nodev";
-    grub.efiSupport = true;
+    grub = {
+      enable = true;
+      device = "nodev";
+      efiSupport = true;
+      useOSProber = true;
+    };
     efi.canTouchEfiVariables = true;
   };
 
