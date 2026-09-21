@@ -27,6 +27,27 @@
   #wallpapers
   home.file."images/wallpapers/wallpaper.png".source = ../../config/wallpaper.png;
 
+  #qt5 (ai slop)
+  xdg.configFile."qt5ct/colors/Dracula.conf".source = (pkgs.fetchFromGitHub {
+    owner = "dracula";
+    repo = "qt5";
+    rev = "7b25ee305365f6e62efb2c7aca3b4635622b778c";
+    sha256 = "00qlajbxj25w1bdhj8wc5r57g25gas6f1ax6wrzb4xcypw0j7xdm";
+  }) + "/Dracula.conf";
+
+  xdg.configFile."qt5ct/qt5ct.conf".text = ''
+    [Appearance]
+    ColorScheme=Dracula.conf
+    Style=Fusion
+    [Interfaces]
+    ActivateItemDelay=0
+    ButtonBoxLayout=0
+    CursorBlinkTime=1000
+    DialogButtonsLayout=0
+    KeyboardScheme=2
+    SubmenuDelay=150
+  '';
+
   #tg-ws-proxy secret setup
   home.activation = {
     generateSecret = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
@@ -63,10 +84,48 @@
     obs-studio
 
     #system things
+    swaynotificationcenter
+    hyprlock
+    wlogout
+    libsForQt5.qt5ct
+    pavucontrol
+    waypaper
+
     openssl
     neohtop
-    pavucontrol
   ];
+
+  #fixing hyprland workspaces doesnt switch in waybar https://github.com/hyprwm/Hyprland/issues/725
+  programs.waybar.package = pkgs.waybar.overrideAttrs (oa: { 
+    mesonFlags = (oa.mesonFlags or  []) ++ [ "-Dexperimental=true" ];
+    patches = (oa.patches or []) ++ [
+      (pkgs.fetchpatch {
+        name = "fix waybar hyprctl";
+        url = "https://aur.archlinux.org/cgit/aur.git/plain/hyprctl.patch?h=waybar-hyprland-git";
+        sha256 = "sha256-pY3+9Dhi61Jo2cPnBdmn3NUTSA8bAbtgsk2ooj4y7aQ=";
+      })
+    ];
+  });
+
+  qt = {
+    enable = true;
+    platformTheme.name = "qtct";
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Dracula";
+      package = pkgs.dracula-theme;
+    };
+  };
+
+  # AI SLOP FOR LIBADWAITA APPS
+  gtk.gtk4.extraConfig = {
+    Settings = ''
+      gtk-application-prefer-dark-theme=1
+    '';
+  };
 
   xdg.mimeApps = {
     enable = true;
