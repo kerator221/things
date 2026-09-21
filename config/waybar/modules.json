@@ -38,14 +38,14 @@
   // Wallpaper
   "custom/wallpaper": {
     "format": "",
-    "on-click": "bash -c waypaper &",
-    "tooltip-format": "Left: Select a wallpaper\nRight: Select wallpaper effect"
+    "on-click": "waypaper",
+    "tooltip-format": "Left: Select a wallpaper"
   },
 
   // Power Menu
   "custom/exit": {
     "format": "󰿅 ",
-    "on-click": "",
+    "on-click": "wlogout",
     "on-click-right": "hyprlock",
     "tooltip-format": "Left: Power menu\nRight: Lock screen"
   },
@@ -115,10 +115,32 @@
       "disk", 
       "cpu", 
       "memory", 
-      "custom/settings", 
       "custom/wallpaper",
-      "custom/waybarthemes"]
+      "bluetooth"
+    ]
   },
+
+  //took from reddit and using ai turned in json syntax
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{} {icon}",
+    "format-icons": {
+        "notification": "󱅫 ",
+        "none": "󰂚",
+        "dnd-notification": " ",
+        "dnd-none": "󰂛",
+        "inhibited-notification": "",
+        "inhibited-none": "",
+        "dnd-inhibited-notification": " ",
+        "dnd-inhibited-none": " "
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "sleep 0.1 && swaync-client -t -sw",
+    "on-click-right": "sleep 0.1 && swaync-client -d -sw",
+    "escape": true
+  },   
 
   "custom/gtools-wrap": {
       "format": "",
@@ -165,29 +187,11 @@
 
   // Bluetooth
   "bluetooth": {
-    "format": " {status}",
-    "format-disabled": "",
-    "format-off": "",
+    "format": "󰂯",
+    "format-disabled": "󰂳",
+    "format-off": "󰂲",
     "interval": 30,
-    "on-click": "sleep 0.1 && ~/.config/ml4w/settings/bluetooth.sh",
+    "on-click": "blueman-manager",
     "format-no-controller": ""
-  },
-
-  // Other
-  "user": {
-    "format": "{user}",
-    "interval": 60,
-    "icon": false
-  },
-
-// Custom menu by ghosty
-    "custom/ghostymenu": {
-      "format": "\uf31f",
-      "tooltip-format": "Left: Open power menu\nRight: Open application finder",
-      "on-click": "~/.config/ml4w/scripts/wlogout.sh",
-      //"on-click": "/home/ghosty/.config/waybar/scripts/appmenu.sh",
-      //"on-click-right": "wofi --show drun",
-      "on-click-right": "rofi -show drun -replace",
-      "escape": true
-    }
+  }
 }
