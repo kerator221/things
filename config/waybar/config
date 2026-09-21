@@ -7,8 +7,6 @@
     "margin-top": 8,
     "margin-bottom": -24,
     "passthrough": false, 
-    "height": 40,
-    "width": 1890,
     "spacing": 8,
 
     "include": [
@@ -31,6 +29,7 @@
         "orientation": "inherit",
         "modules": [
             "group/gtools",
+            "custom/notification",
             "custom/exit"
         ]
     },
