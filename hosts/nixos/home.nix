@@ -129,18 +129,19 @@
 
   xdg.mimeApps = {
     enable = true;
-    defaultApplications = {
-      "image/*" = "qimgv.desktop";
-    };
+    #defaultApplications = {
+    #  "image/*" = "qimgv.desktop";
+    #};
 
     #if upper thing doesnt work use this thing below
 
-    #associations.added = {
-    #  "image/jpeg" = "qimgv.desktop";
-    #  "image/png" = "qimgv.desktop";
-    #  "image/gif" = "qimgv.desktop";
-    #  "image/webp" = "qimgv.desktop";
-    #};
+    associations.added = {
+      "image/jpeg" = "qimgv.desktop";
+      "image/jpg" = "qimgv.desktop";
+      "image/png" = "qimgv.desktop";
+      "image/gif" = "qimgv.desktop";
+      "image/webp" = "qimgv.desktop";
+    };
   };
 
   services.hyprpaper = {
