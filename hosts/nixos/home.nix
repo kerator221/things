@@ -17,7 +17,6 @@
 
   #waybar 
   xdg.configFile."waybar/config".source = ../../config/waybar/config;
-  xdg.configFile."waybar/config.sh".source = ../../config/waybar/config.sh;
   xdg.configFile."waybar/modules.json".source = ../../config/waybar/modules.json;
   xdg.configFile."waybar/style.css".source = ../../config/waybar/style.css;
 
