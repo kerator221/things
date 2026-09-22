@@ -95,31 +95,43 @@
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
    environment.systemPackages = with pkgs; [
-      curl
-      wineWowPackages.staging
-      winetricks
-      flatpak
-      bottles
-      lutris
-      ntfs3g
-      nano
-      wget
-      kitty
-      rofi
-      vscode
-      git
-      waybar
-      fastfetch
-      cliphist
-      wl-clipboard
-      wlr-randr
-      hyprshot
-      hyprpaper
-      kdePackages.kdenlive
-      kdePackages.dolphin
-      kdePackages.xdg-desktop-portal-kde
-      kdePackages.kservice
-      gphoto2fs
+    # Gaming
+    wineWowPackages.staging
+    winetricks
+    bottles
+    lutris
+
+    # Filesystems
+    ntfs3g
+
+    # Utilities
+    flatpak
+    nano
+    wget
+
+    # Development
+    hyper
+    rofi
+    vscode
+    git
+
+    # Hyprland / Desktop
+    waybar
+    fastfetch
+    cliphist
+    wl-clipboard
+    wlr-randr
+    hyprshot
+    hyprpaper
+
+    # KDE
+    kdePackages.kdenlive
+    kdePackages.dolphin
+    kdePackages.xdg-desktop-portal-kde
+    kdePackages.kservice
+
+    # Camera
+    gphoto2fs
    ];
 
   i18n.defaultLocale = "en_US.UTF-8";
