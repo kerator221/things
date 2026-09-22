@@ -184,6 +184,7 @@
   services.xserver.enable = true;
   services.blueman.enable = true;
   services.gvfs.enable = true;
+  services.usbmuxd.enable = true;   
 
   system.stateVersion = "26.05"; # Did you read the comment?
   
