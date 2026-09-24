@@ -91,22 +91,7 @@
   ];
 
   #fixing hyprland workspaces (activate) doesnt switch in waybar 
-  programs.waybar = {
-    enable = true;
-    package = pkgs.waybar.overrideAttrs (oldAttrs: {
-      postPatch = ''
-        sed -i 's/zext_workspace_handle_v1_activate(workspace_handle_);/const std::string command = "hyprctl dispatch workspace " + name_;\n\tsystem(command.c_str());/g' src/modules/wlr/workspace_manager.cpp
-      '';
-      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-    });
-    settings.mainBar = {
-      "hyprland/workspaces" = {
-        "on-click" = "activate";
-        "on-scroll-up" = "hyprctl dispatch workspace e+1";
-        "on-scroll-down" = "hyprctl dispatch workspace e-1";
-      };
-    };
-  };  
+  #need to add waybar from flake! no solution now
 
   qt = {
     enable = true;
