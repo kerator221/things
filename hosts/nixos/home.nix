@@ -29,10 +29,10 @@
   xdg.configFile."waybar/modules.json".source = ../../config/waybar/modules.json;
   xdg.configFile."waybar/style.css".source = ../../config/waybar/style.css;
 
-  #kitty
-  xdg.configFile."kitty/kitty.conf".source = ../../config/kitty.conf;
-
   #wallpapers
+  home.file.".local/bin/walset".source = ../../config/wallpapers/walset;
+  home.file.".local/bin/walset-backend".source = ../../config/wallpapers/walset-backend;
+
   home.file."images/wallpapers/wallpaper.png".source = ../../config/wallpaper.png;
   home.file."images/wallpapers/wallpaper2.png".source = ../../config/wallpaper2.png;
   home.file."images/wallpapers/wallpaper3.png".source = ../../config/wallpaper3.png;
