@@ -95,15 +95,17 @@
     obs-studio
 
     #system things
+    awww
     lz4
     matugen
+
     swaynotificationcenter
+    waypaper
     hyprlock
     wlogout
     libsForQt5.qt5ct
+    
     pavucontrol
-    waypaper
-
     openssl
     neohtop
   ];
