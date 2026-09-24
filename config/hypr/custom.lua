@@ -25,7 +25,7 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("nix run github:pialtor/tg-ws-proxy-flake -- --port 1080 --secret " .. secret)
     hl.exec_cmd("wl-paste --type text --watch cliphist store")
     hl.exec_cmd("wl-paste --type image --watch cliphist store")
-    hl.exec_cmd("waybar & hyprpaper & waypaper --restore")
+    hl.exec_cmd("waybar & hyprpaper & awww --restore")
     hl.exec_cmd("steam & Telegram")
 end)
 
