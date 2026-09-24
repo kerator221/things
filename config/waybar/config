@@ -1,14 +1,15 @@
 {
-    "layer": "top",
+    "layer": "bottom",
     "position": "top",
-    "mod": "dock",
+    //"mod": "dock",
     "exclusive": true,
     "gtk-layer-shell": true,
     "margin-top": 8,
     "margin-bottom": -24,
     "passthrough": false, 
-    "spacing": 8,
-    "height": 40,
+    "spacing": 3,
+    "fixed-center": true,
+    "height": 35,
 
     "include": [
         "~/.config/waybar/modules.json"

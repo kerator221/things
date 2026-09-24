@@ -1,146 +1,152 @@
 @import url("/home/ghosty/.config/waybar/colors.css");
 
+/* it was made 70/30 by me and AI */
+
 * {
 	font-family: "Segoe UI", "Ubuntu";
-	font-size: 16px;
+	font-size: 15px;
 	font-weight: 600;
 	text-shadow: none;
-	margin: 0;
+	border: none;
+    margin: 0;
+    padding: 0;
+    min-height: 0;
 }
 
 window#waybar {
-	background-color: transparent;
-	border-radius: 6px;
-	color: @on_background;
+    background: transparent;
+    color: @on_surface;
 }
 
 window#waybar.hidden {
 	opacity: 0.2;
 }
 
-#clock {
-	background-color: #000000;
-	border-radius: 24px;
-	padding-left: 15px;
-	padding-right: 15px;
-	opacity: 0.7;
-	transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-#clock:hover {
-	font-size: 20px;
-	opacity: 1;
-}
-
-#tray {
-	background-color: #000000;
-	border-radius: 24px;
+#clock, #tray, #workspaces, #bubble, #pulseaudio, #language, #network, #gtools {
+	background-color: alpha(@surface_container_lowest, 0.75);
+	color: @surface_tint;
+	border-radius: 32px;
+	border: 1px solid alpha(@outline_variant, 0.3);
 	padding-left: 15px;
 	padding-right: 15px;
 	padding-top: 5px;
 	padding-bottom: 5px;
-	opacity: 0.7;
+	transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    			color            0.25s cubic-bezier(0.4, 0, 0.2, 1),
+   			 	border-color     0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-#tray * {
-	transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-	opacity: 1;
-	margin-left: 5px;
-	margin-right: 5px;
+#clock:hover, #tray:hover, #workspaces:hover, #bubble:hover, #pulseaudio:hover, #language:hover, #network:hover, #gtools:hover {
+    color: @primary;
+	background-color: alpha(@surface_container_high, 0.9);
+    border-color: alpha(@primary, 0.45);
+}
+
+#clock {
+	padding: 3px 18px;
+	font-weight: 700;
+}
+
+#tray > * {
+	margin: 0px 4px;
+	color: @surface_tint;
+	transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #tray > *:hover {
-	border-radius: 24px;
-	background-color: #3f3f3f;
+    color: @primary;
 }
 
 #workspaces {
-	background-color: #000000;
-	border-radius: 24px;
-	padding-left: 15px;
-	padding-right: 15px;
-	padding-top: 3px;
-	padding-bottom: 3px;
-	opacity: 0.7;
-	transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 3px 8px;
 }
 
-#workspaces * {
-	border-radius: 24px;
+#workspaces button {
+    padding: 0 9px;
+    margin: 0 2px;
+    min-width: 12px;
+    background: transparent;
+    color: alpha(@on_surface_variant, 0.85);
+    border-radius: 32px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-#workspaces > *:hover {
-	background-color: #5f5252;
-	border-radius: 24px;
+#workspaces button:hover {
+    background-color: alpha(@surface_container_highest, 0.90);
+    color: @on_surface;
+}
+
+#workspaces button.active {
+    background-color: alpha(@primary, 0.22);
+    color: @primary;
+    padding: 0 16px;
+}
+
+#workspaces button.active:hover {
+    background-color: alpha(@primary, 0.32);
+}
+
+#workspaces button.urgent {
+    background-color: alpha(@error, 0.25);
+    color: @error;
+}
+
+#workspaces button.empty {
+    color: alpha(@on_surface_variant, 0.40);
 }
 
 #bubble {
-	background-color: #000000;
-	border-radius: 24px;
-	opacity: 0.7;
-	transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    padding:5px 15px;
 }
 
-#bubble:hover {
-	opacity: 1;
-	font-size: 20px;
-	padding-bottom: 5px;
-	padding-top: 5px;
-	padding-left: 5px;
-	padding-right: 5px;
+#pulseaudio.muted {
+    color: alpha(@error, 0.95);
 }
 
-#pulseaudio, #language, #gtools{
-	background-color: #000000;
-	border-radius: 24px;
-	padding-left: 15px;
-	padding-right: 15px;
-	opacity: 0.7;
-	transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+#network.disconnected {
+    color: alpha(@error, 0.95);
 }
 
-#pulseaudio:hover {
-	font-size: 20px;
-	opacity: 1;
-}
-
-#language:hover {
-    opacity: 1;
-	font-size: 20px;
-}
-
-#network:hover {
-	font-size: 20px;
-	opacity: 1;
+#gtools {
+    padding: 0px 15px;
 }
 
 #gtools * {
-	margin-left: 5px;
-	margin-right: 5px;
+    background: transparent;
+    color: inherit;
+    margin: 0px 6px;
+    padding: 0;
+    transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#gtools *:hover {
+    color: @primary;
 }
 
 #custom-wallpaper {
-	padding-right: 15px;
+    margin-right:20px;
+    margin-left:10px;
 }
 
-#custom-exit {
-	padding-right: 15px;
-	margin-left: 5px;
-	opacity: 0.7;
-	transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+#custom-exit, #custom-notification {
+    background: transparent;
+    border-radius: 32px;
+    margin: 0px 5px;
+    padding: 0px 15px;
+    transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-#custom-exit:hover {
-	font-size: 20px;
-	opacity: 1;
+#custom-exit:hover, #custom-notification:hover {
+    background-color: alpha(@primary, 0.30);
 }
 
-#custom-notification {
-	padding-right: 15px;
-	margin-right: 5px;
-	transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+tooltip {
+    background-color: @surface_container;
+    border: 1px solid alpha(@outline_variant, 0.5);
+    border-radius: 12px;
 }
 
-#custom-notification:hover {
-	font-size: 20px;
+tooltip label {
+    color: @on_surface;
+    padding: 4px 6px;
 }
