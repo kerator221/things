@@ -90,17 +90,23 @@
     neohtop
   ];
 
-  #fixing hyprland workspaces doesnt switch in waybar https://github.com/hyprwm/Hyprland/issues/725
-  programs.waybar.package = pkgs.waybar.overrideAttrs (oa: { 
-    mesonFlags = (oa.mesonFlags or  []) ++ [ "-Dexperimental=true" ];
-    patches = (oa.patches or []) ++ [
-      (pkgs.fetchpatch {
-        name = "fix waybar hyprctl";
-        url = "https://aur.archlinux.org/cgit/aur.git/plain/hyprctl.patch?h=waybar-hyprland-git";
-        sha256 = "sha256-pY3+9Dhi61Jo2cPnBdmn3NUTSA8bAbtgsk2ooj4y7aQ=";
-      })
-    ];
-  });
+  #fixing hyprland workspaces (activate) doesnt switch in waybar 
+  programs.waybar = {
+    enable = true;
+    package = pkgs.waybar.overrideAttrs (oldAttrs: {
+      postPatch = ''
+        sed -i 's/zext_workspace_handle_v1_activate(workspace_handle_);/const std::string command = "hyprctl dispatch workspace " + name_;\n\tsystem(command.c_str());/g' src/modules/wlr/workspace_manager.cpp
+      '';
+      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+    });
+    settings.mainBar = {
+      "hyprland/workspaces" = {
+        "on-click" = "activate";
+        "on-scroll-up" = "hyprctl dispatch workspace e+1";
+        "on-scroll-down" = "hyprctl dispatch workspace e-1";
+      };
+    };
+  };  
 
   qt = {
     enable = true;
