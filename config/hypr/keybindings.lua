@@ -15,7 +15,7 @@ hl.bind(mainMod .. " + R", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized" }))
 hl.bind("ALT + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
-hl.bind(mainmod .. " + W", hl.dsp.exec_cmd("walset"))
+hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("walset"))
 
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(appMenu))
 
