@@ -17,12 +17,12 @@
 
   #matugen
   xdg.configFile."matugen/config.toml".source = ../../config/matugen/config.toml;
-  xdg.configFile."matugen/templates/hyprland-colors.lua".source = ../../config/matugen/templates/hyprland-colors.lua;
   xdg.configFile."matugen/templates/colors.css".source = ../../config/matugen/templates/colors.css;
   xdg.configFile."matugen/templates/gtk-colors.css".source = ../../config/matugen/templates/gtk-colors.css;
-  xdg.configFile."matugen/templates/kitty-colors.conf".source = ../../config/matugen/templates/kitty-colors.conf;
   xdg.configFile."matugen/templates/qtct-colors.conf".source = ../../config/matugen/templates/qtct-colors.conf;
   xdg.configFile."matugen/templates/rofi-colors.rasi".source = ../../config/matugen/templates/rofi-colors.rasi;
+  xdg.configFile."matugen/templates/kitty-colors.conf".source = ../../config/matugen/templates/kitty-colors.conf;
+  xdg.configFile."matugen/templates/hyprland-colors.lua".source = ../../config/matugen/templates/hyprland-colors.lua;
 
   #waybar 
   xdg.configFile."waybar/config".source = ../../config/waybar/config;
