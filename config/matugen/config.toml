@@ -5,7 +5,7 @@ set = true
 
 [templates.hyprland]
 input_path = '/home/ghosty/.config/matugen/templates/hyprland-colors.lua'
-output_path = '~/.config/hypr/colors.lua
+output_path = '~/.config/hypr/colors.lua'
 post_hook = 'hyprctl reload'
 
 [templates.waybar]
