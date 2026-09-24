@@ -38,27 +38,6 @@
   home.file."images/wallpapers/wallpaper3.png".source = ../../config/wallpaper3.png;
   home.file."images/wallpapers/wallpaper4.png".source = ../../config/wallpaper4.png;
 
-  #qt5 (ai slop)
-  xdg.configFile."qt5ct/colors/Dracula.conf".source = (pkgs.fetchFromGitHub {
-    owner = "dracula";
-    repo = "qt5";
-    rev = "7b25ee305365f6e62efb2c7aca3b4635622b778c";
-    sha256 = "00qlajbxj25w1bdhj8wc5r57g25gas6f1ax6wrzb4xcypw0j7xdm";
-  }) + "/Dracula.conf";
-
-  xdg.configFile."qt5ct/qt5ct.conf".text = ''
-    [Appearance]
-    ColorScheme=Dracula.conf
-    Style=Fusion
-    [Interfaces]
-    ActivateItemDelay=0
-    ButtonBoxLayout=0
-    CursorBlinkTime=1000
-    DialogButtonsLayout=0
-    KeyboardScheme=2
-    SubmenuDelay=150
-  '';
-
   #tg-ws-proxy secret setup
   home.activation = {
     generateSecret = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
@@ -129,10 +108,6 @@
 
   gtk = {
     enable = true;
-    theme = {
-      name = "Dracula";
-      package = pkgs.dracula-theme;
-    };
   };
 
   # AI SLOP FOR LIBADWAITA APPS
