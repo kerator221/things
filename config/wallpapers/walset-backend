@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# Credits: https://youtu.be/PLb2lA9jBCI
+
+# Check if the user provided an argument 
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <path_to_image>"
+    exit 1
+fi
+
+IMAGE="$1"
+
+# Send notification to the user
+notify-send "Changing Theme" "Applying new wallpaper and updating colors, please wait until confirmation..."
+
+# Set wallpaper
+awww img "$IMAGE" --transition-type="center" --transition-step=1 --transition-fps="60"
+
+# Use Matugen to generate Material You colors
+matugen image "$IMAGE"
+
+# Refresh waybar
+pkill waybar
+nohup waybar &
+
+# Refresh swaync
+pkill swaync
+nohup waybar &
+
+notify-send "Theme Applied" "Wallpaper and theme updated successfully!"
