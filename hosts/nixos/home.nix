@@ -33,10 +33,10 @@
   home.file.".local/bin/walset".source = ../../config/wallpapers/walset;
   home.file.".local/bin/walset-backend".source = ../../config/wallpapers/walset-backend;
 
-  home.file."images/wallpapers/wallpaper.png".source = ../../config/wallpapers/wallpaper.png;
-  home.file."images/wallpapers/wallpaper2.png".source = ../../config/wallpapers/wallpaper2.png;
-  home.file."images/wallpapers/wallpaper3.png".source = ../../config/wallpapers/wallpaper3.png;
-  home.file."images/wallpapers/wallpaper4.png".source = ../../config/wallpapers/wallpaper4.png;
+  home.file."images/wallpapers/white nixos.png".source = ../../config/wallpapers/wallpaper.png;
+  home.file."images/wallpapers/dark blue nixos.png".source = ../../config/wallpapers/wallpaper2.png;
+  home.file."images/wallpapers/black mountain.png".source = ../../config/wallpapers/wallpaper3.png;
+  home.file."images/wallpapers/gray mountain.png".source = ../../config/wallpapers/wallpaper4.png;
 
   #tg-ws-proxy secret setup
   home.activation = {
