@@ -1,9 +1,21 @@
+@import url("/home/ghosty/.config/waybar/colors.css");
+
 * {
 	font-family: "Segoe UI", "Ubuntu";
 	font-size: 16px;
 	font-weight: 600;
 	text-shadow: none;
 	margin: 0;
+}
+
+window#waybar {
+	background-color: transparent;
+	border-radius: 6px;
+	color: @on_background;
+}
+
+window#waybar.hidden {
+	opacity: 0.2;
 }
 
 #clock {
@@ -131,23 +143,4 @@
 
 #custom-notification:hover {
 	font-size: 20px;
-}
-
-window#waybar {
-	background-color: rgba(25, 25, 25, 0);
-	border-radius: 6px;
-	color: white;
-}
-
-window#waybar.chromium {
-	background-color: #000000;
-	border: none;
-}
-
-window#waybar.hidden {
-	opacity: 0.2;
-}
-
-window#waybar.termite {
-	background-color: #3f3f3f;
 }
