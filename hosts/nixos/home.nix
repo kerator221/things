@@ -15,6 +15,9 @@
   xdg.configFile."hypr/permissions.lua".source = ../../config/hypr/permissions.lua;
   xdg.configFile."hypr/windows.lua".source = ../../config/hypr/windows.lua;
 
+  #matugen
+  xdg.configFile."matugen/templates/hyprland-colors.conf".source = ../../config/matugen/templates/hyprland-colors.conf
+
   #waybar 
   xdg.configFile."waybar/config".source = ../../config/waybar/config;
   xdg.configFile."waybar/modules.json".source = ../../config/waybar/modules.json;
