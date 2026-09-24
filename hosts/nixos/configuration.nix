@@ -71,7 +71,8 @@
   xdg.menus.enable = true;
   xdg.portal.enable = true;
   xdg.portal.xdgOpenUsePortal = true;
-
+  
+  environment.localBinInPath = true;   
   environment.etc."xdg/menus/applications.menu".source = "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
   environment.variables.SUDO_EDITOR = "code --wait";   #makes vscode as sudo editor
   
