@@ -86,6 +86,7 @@
     obs-studio
 
     #system things
+    matugen
     swaynotificationcenter
     hyprlock
     wlogout
