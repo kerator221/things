@@ -77,6 +77,7 @@
   environment.variables.SUDO_EDITOR = "code --wait";   #makes vscode as sudo editor
   
   environment.sessionVariables = {
+    QT_QPA_PLATFORMTHEME = "qt6ct";
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
   };   
