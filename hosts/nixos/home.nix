@@ -5,38 +5,34 @@
   home.homeDirectory = "/home/${username}";
   home.stateVersion = "26.05";
 
-  #hyprland config
-  xdg.configFile."hypr/hyprland.lua".source = ../../config/hypr/hyprland.lua;
-  xdg.configFile."hypr/animations.lua".source = ../../config/hypr/animations.lua;
-  xdg.configFile."hypr/custom.lua".source = ../../config/hypr/custom.lua;
-  xdg.configFile."hypr/decorations.lua".source = ../../config/hypr/decorations.lua;
-  xdg.configFile."hypr/keybindings.lua".source = ../../config/hypr/keybindings.lua;
-  xdg.configFile."hypr/monitors.lua".source = ../../config/hypr/monitors.lua;
-  xdg.configFile."hypr/permissions.lua".source = ../../config/hypr/permissions.lua;
-  xdg.configFile."hypr/windows.lua".source = ../../config/hypr/windows.lua;
+  #hyprland configs
+  xdg.configFile."hypr".source = ../../config/hypr;
 
   #matugen
-  xdg.configFile."matugen/config.toml".source = ../../config/matugen/config.toml;
-  xdg.configFile."matugen/templates/colors.css".source = ../../config/matugen/templates/colors.css;
-  xdg.configFile."matugen/templates/gtk-colors.css".source = ../../config/matugen/templates/gtk-colors.css;
-  xdg.configFile."matugen/templates/qtct-colors.conf".source = ../../config/matugen/templates/qtct-colors.conf;
-  xdg.configFile."matugen/templates/rofi-colors.rasi".source = ../../config/matugen/templates/rofi-colors.rasi;
-  xdg.configFile."matugen/templates/kitty-colors.conf".source = ../../config/matugen/templates/kitty-colors.conf;
-  xdg.configFile."matugen/templates/hyprland-colors.lua".source = ../../config/matugen/templates/hyprland-colors.lua;
+  xdg.configFile."matugen".source = ../../config/matugen;
 
   #waybar 
-  xdg.configFile."waybar/config".source = ../../config/waybar/config;
-  xdg.configFile."waybar/modules.json".source = ../../config/waybar/modules.json;
-  xdg.configFile."waybar/style.css".source = ../../config/waybar/style.css;
+  xdg.configFile."waybar".source = ../../config/waybar;
+
+  #qt6ct 
+  xdg.configFile."qt6ct".source = ../../config/qt6ctc;
+
+  #rofi 
+  xdg.configFile."rofi".source = ../../config/rofi;
+
+  #swaync 
+  xdg.configFile."swaync".source = ../../config/swaync;
+
+  #wlogout 
+  xdg.configFile."wlogout".source = ../../config/wlogout;
 
   #wallpapers
   home.file.".local/bin/walset".source = ../../config/wallpapers/walset;
   home.file.".local/bin/walset-backend".source = ../../config/wallpapers/walset-backend;
 
-  home.file."images/wallpapers/white nixos.png".source = ../../config/wallpapers/wallpaper.png;
-  home.file."images/wallpapers/dark blue nixos.png".source = ../../config/wallpapers/wallpaper2.png;
-  home.file."images/wallpapers/black mountain.png".source = ../../config/wallpapers/wallpaper3.png;
-  home.file."images/wallpapers/gray mountain.png".source = ../../config/wallpapers/wallpaper4.png;
+  home.file."images/wallpapers/cars".source = ../../config/wallpapers/cars;
+  home.file."images/wallpapers/characters".source = ../../config/wallpapers/characters;
+  home.file."images/wallpapers/landscapes".source = ../../config/wallpapers/landscapes;
 
   #tg-ws-proxy secret setup
   home.activation = {
@@ -77,6 +73,7 @@
     awww
     lz4
     matugen
+    jq
 
     swaynotificationcenter
     libnotify

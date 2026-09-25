@@ -82,10 +82,6 @@
     NIXOS_OZONE_WL = "1";
   };   
 
-  programs.kitty = {
-    enable = true;
-    settings.confirmOsWindowClose = 0;
-  };
   programs.gphoto2.enable = true;
   programs.git.enable = true;
   programs.hyprland.enable = true;
@@ -119,6 +115,7 @@
     rofi
     vscode
     git
+    kitty
 
     # Hyprland / Desktop
     waybar
@@ -163,6 +160,7 @@
       dina-font
       dejavu_fonts
       proggyfonts
+      geist-font
     ];
     fontDir.enable = true;
     fontconfig.enable = true;
