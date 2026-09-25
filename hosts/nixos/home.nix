@@ -84,7 +84,8 @@
     hyprlock
     wlogout
     libsForQt5.qt5ct
-    
+    quickshell
+
     pavucontrol
     openssl
     neohtop
