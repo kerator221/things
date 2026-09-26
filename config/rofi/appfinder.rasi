@@ -27,7 +27,7 @@ imagebox {
     margin: 4px 4px;
     border-radius:              16px;
     background-color:            transparent;
-    background-image:            url("/tmp/current-wallpaper", height);
+    background-image:            url("/tmp/current_wallpaper", height);
     children:                    ["inputbar"];
 }
 
