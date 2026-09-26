@@ -2,21 +2,27 @@
 
 # Directory containing wallpapers
 WALL_DIR="$HOME/images/wallpapers"
+WALLPAPER=$(echo -e "cars\ncharacters\nlandscapes" | rofi -config $HOME/.config/rofi/mini.rasi -dmenu -i -p "Select:")
+
+[[ -z "$WALLPAPER" ]] && exit
 
 # Current directory (to cd back to)
 CWD="$(pwd)"
 
-cd "$WALL_DIR" || exit 1
+cd "$WALL_DIR/$WALLPAPER" || exit 1
 
 # Handle spaces in filenames
 IFS=$'\n'
 
 # Grab the user-selected wallpaper
-SELECTED_WALL=$(for a in *.jpg *.png; do echo -en "$a\0icon\x1f$a\n" ; done | rofi -dmenu -p "")
+SELECTED_WALL=$(for a in *.jpg *.png; do echo -en "$a\0icon\x1f$a\n" ; done | rofi -dmenu -config $HOME/.config/rofi/wallpapers.rasi -p "󰸉 Wallpapers")
 
 # If not empty, pass to walset-backend
 if [ -n "$SELECTED_WALL" ]; then
     walset-backend "$SELECTED_WALL"
+
+    # Create symlink in /tmp for rofi
+    ln -sf "$(pwd)/$SELECTED_WALL" /tmp/current_wallpaper
 fi
 
 # Go back to where you came from

@@ -15,9 +15,9 @@
     "all-outputs": true,
     "format": "{}",
     "format-icons": {
-      "urgent": "",
-      "active": "",
-      "default": ""
+      "urgent": "",
+      "active": "󰝥",
+      "default": ""
     },
     "persistent-workspaces": {
             "*": 4
@@ -27,12 +27,6 @@
   // Empty
   "custom/empty": {
     "format": ""
-  },
-
-    // Tools
-  "custom/tools": {
-    "format": "",
-    "tooltip-format": "Tools"
   },
 
   // Wallpaper
@@ -50,27 +44,10 @@
     "tooltip-format": "Left: Power menu\nRight: Lock screen"
   },
 
-  // Keyboard State
-  "keyboard-state": {
-    "numlock": true,
-    "capslock": true,
-    "format": "{name} {icon}",
-    "format-icons": {
-      "locked": "",
-      "unlocked": ""
-    }
-  },
-
-  // System tray
-  "tray": {
-    "icon-size": 21,
-    "spacing": 10
-  },
-
   // Clock
   "clock": {
     // "format": "{:%H:%M %a}",
-    "format": "{:%H:%M}",
+    "format": "   {:%H:%M}",
     "timezone": "",
     "tooltip": false
   },
@@ -99,8 +76,8 @@
   },
 
   "hyprland/language": {
-    "format": "{short}",
-    "on-click": ""
+    "format": "{}",
+    "on-click": "~/.config/waybar/scripts/language-switch.sh"
   },
 
   // Ghosty Group Tray
@@ -121,7 +98,7 @@
     ]
   },
 
-  //took from reddit and using ai turned in json syntax
+  //took from reddit and using ai turned into json syntax
   "custom/notification": {
     "tooltip": false,
     //"format": "{} {icon}",
@@ -167,24 +144,22 @@
 
   // Pulseaudio
   "pulseaudio": {
-    // "scroll-step": 1, // %, can be a float
-    //"format": "{icon}  {volume}%",
-    "format": "{icon}",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": " {format_source}",
-    "format-source": "{volume}% ",
-    "format-source-muted": "",
-    "format-icons": {
-      "headphone": " ",
-      "hands-free": " ",
-      "headset": " ",
-      "phone": " ",
-      "portable": " ",
-      "car": " ",
-      "default": ["", "", ""]
-    },
-    "on-click": "pavucontrol"
+      "format": "󰕾",
+      "format-bluetooth": "{icon} {volume}%",
+      "format-bluetooth-muted": " {icon} {format_source}",
+      "format-muted": " {format_source}",
+      "format-source": "{volume}% ",
+      "format-source-muted": "",
+      "format-icons": {
+          "headphone": " ",
+          "hands-free": "󰋋 ",
+          "headset": "󰋋 ",
+          "phone": "",
+          "portable": "",
+          "car": "",
+          "default": ["", "", ""]
+      },
+      "on-click": "pavucontrol"
   },
 
   // Bluetooth

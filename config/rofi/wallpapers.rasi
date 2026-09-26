@@ -1,0 +1,108 @@
+@import "colors.rasi"
+
+configuration {
+    show-icons: true;
+}
+
+* {
+    background-color: transparent;
+}
+
+window {
+    height: 30%;
+    width: 60%;
+    background-color: @on-secondary-fixed;
+    border-radius: 16px;
+    border: 0px;
+}
+
+mainbox {
+    spacing: 0px;
+    background-color: @on-secondary-fixed;
+    children: [inputbar, message, listview];
+}
+
+inputbar {
+    color: @inverse-surface;
+    margin: 8px;
+    padding: 8px 12px;
+    border: 0px;
+    background-color: @on-secondary;
+    border-radius: 16px;
+}
+
+message {
+    padding: 10;
+    background-color: @on-secondary-container;
+}
+
+listview {
+    scrollbar: false;
+    padding: 8px;
+    spacing: 16px;
+    border-radius: 16px;
+    border: 0px;
+    background-color: @on-secondary-fixed;
+    columns: 5;
+    lines: 1;
+    flow: horizontal;
+    dynamic: false;
+    fixed-height: false;
+    fixed-columns: true;
+    scroll-method: 1;
+}
+
+textbox {
+    text-color: @inverse-surface;
+    background-color: inherit;
+}
+
+error-message {
+    border: 20px;
+}
+
+entry, prompt, case-indicator {
+    text-color: inherit;
+    background-color: inherit;
+}
+
+prompt {
+    margin: 0px 10px 0px 0px;
+}
+
+element {
+    orientation: vertical;
+    padding: 5;
+    vertical-align: 0.5;
+    border-radius: 16px;
+    background-color: @on-secondary;
+    spacing: 4px;
+}
+
+element-text {
+    size: 20px;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+    background-color: inherit;
+    text-color: @inverse-surface;
+}
+
+element-icon {
+    size: 180px;
+    horizontal-align: 0.5;
+    background-color: inherit;
+    text-color: @inverse-surface;
+}
+
+element.normal.normal, element.alternate.normal {
+    background-color: @on-secondary;
+    text-color: @inverse-surface;
+}
+
+element.selected.normal {
+    background-color: @primary;
+}
+
+element-text .active, element-text .urgent {
+    text-color: @on-secondary-fixed;
+}

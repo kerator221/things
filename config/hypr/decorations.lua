@@ -43,9 +43,11 @@ hl.config({
 
         blur = {
             enabled   = true,
-            size      = 10,
-            passes    = 1,
+            size      = 6,
+            passes    = 2,
             vibrancy  = 0.1696,
+            new_optimizations = true,
+            popups = true,
         },
     },
 
@@ -53,3 +55,26 @@ hl.config({
         enabled = true,
     },
 })
+
+
+-- Enable blur for Waybar
+hl.layer_rule({
+  match        = { namespace = "waybar" },
+  blur         = true,
+  ignore_alpha = 0.5,
+})
+
+-- Enable blur for SwayNC
+hl.layer_rule({
+  match        = { namespace = "swaync-.*" },
+  blur         = true,
+  ignore_alpha = 0.5,
+})
+
+-- Enable blur and ignore_alpha for Rofi
+hl.layer_rule({
+  match        = { namespace = "rofi" },
+  blur         = true,
+  ignore_alpha = 0.5,
+})
+

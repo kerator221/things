@@ -83,13 +83,14 @@
     libsForQt5.qt5ct
     quickshell
 
+    playerctl
     pavucontrol
     openssl
     neohtop
   ];
 
   #fixing hyprland workspaces (activate) doesnt switch in waybar 
-  #need to add waybar from flake! no solution now
+  #need to add waybar from flake! no solution for now
 
   qt = {
     enable = true;
@@ -131,12 +132,6 @@
       "~/images/wallpapers/wallpaper.png"
     ];
     wallpaper = [
-      # By display
-      # {
-      #   monitor = "DP-2";
-      #   path = "~/wallpapers/wallpaper2.jpg";
-      # }
-      # By default/fallback
       {
         monitor = "";
         path = "~/images/wallpapers/wallpaper.png"; 

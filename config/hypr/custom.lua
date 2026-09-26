@@ -9,8 +9,8 @@ file:close()
 -- Set programs that you use
 terminal    = "kitty"
 fileManager = "dolphin"
-appMenu     = "rofi -show drun"
-cliphist    = "cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"
+appMenu     = "rofi -config ~/.config/rofi/appfinder.rasi -show drun"
+cliphist    = "cliphist list | rofi -config ~/.config/rofi/minimal.rasi -dmenu -display-columns 2 | cliphist decode | wl-copy"
 --menu        = "hyprlauncher"
 
 -------------------

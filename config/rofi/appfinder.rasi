@@ -1,0 +1,118 @@
+@import "colors.rasi"
+
+configuration {
+    show-icons: true;
+}
+
+* {
+    background-color: transparent;
+}
+
+window {
+    anchor: center;
+    height: 70%;
+    width: 30%;
+    background-color: @on-secondary-fixed;
+    border-radius: 24px;
+    border: 0px;
+}
+
+mainbox {
+    spacing: 0px;
+    background-color: @on-secondary-fixed;
+    children: [imagebox, listview];
+}
+
+imagebox {
+    margin: 4px 4px;
+    border-radius:              16px;
+    background-color:            transparent;
+    background-image:            url("/tmp/current-wallpaper", height);
+    children:                    ["inputbar"];
+}
+
+inputbar {
+    color: @inverse-surface;
+    margin: 8px 16px;
+    padding: 8px 12px;
+    border: 0px;
+    background-color: @on-secondary;
+    border-radius: 16px;
+}
+
+message {
+    padding: 10;
+    background-color: @on-secondary-container;
+}
+
+listview {
+    scrollbar: false;
+    margin: 10px 0px;
+    padding: 0px 8px;
+    spacing: 0px;
+    border-radius: 16px;
+    border: 0px;
+    background-color: @on-secondary-fixed;
+    columns: 1;
+    lines: 5;
+    flow: vertical;
+    dynamic: false;
+    fixed-height: false;
+    fixed-columns: true;
+    scroll-method: 1;
+}
+
+textbox {
+    text-color: @inverse-surface;
+    background-color: inherit;
+}
+
+error-message {
+    border: 24px;
+}
+
+entry, prompt, case-indicator {
+    text-color: inherit;
+    background-color: inherit;
+}
+
+prompt {
+    margin: 0px 10px 0px 0px;
+}
+
+element {
+    orientation: horizontal;
+    padding: 4;
+    vertical-align: 0.5;
+    border-radius: 16px;
+    background-color: @on-secondary;
+    spacing: 12px;
+}
+
+element-text {
+    vertical-align: 0.5;
+    horizontal-align: 0;
+    background-color: inherit;
+    text-color: @inverse-surface;
+}
+
+element-icon {
+    size: 40px;
+    vertical-align: 0.5;
+    horizontal-align: 0;
+    background-color: inherit;
+    text-color: @inverse-surface;
+}
+
+element.normal.normal, element.alternate.normal {
+    background-color: transparent;
+    text-color: @inverse-surface;
+}
+
+element.selected.normal {
+    background-color: @primary;
+}
+
+element-text .active, element-text .urgent {
+    text-color: @on-secondary-fixed;
+}
