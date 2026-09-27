@@ -27,6 +27,10 @@
     #qt6ct 
     xdg.configFile."qt6ct/qt6ct.conf".source = ../../../config/qt6ct/qt6ct.conf;
 
+    #gtk3/4
+    xdg.configFile."gtk-3.0/gtk.css".source = ../../../config/gtk/gtk.css;
+    xdg.configFile."gtk-4.0/gtk.css".source = ../../../config/gtk/gtk.css;
+
     #rofi 
     #xdg.configFile."rofi".source = ../../../config/rofi;
     xdg.configFile."rofi/appfinder.rasi".source = ../../../config/rofi/appfinder.rasi;
@@ -49,7 +53,9 @@
     xdg.configFile."waybar/style.css".source = ../../../config/waybar/style.css;
 
     #wlogout 
-    xdg.configFile."wlogout".source = ../../../config/wlogout;
+    xdg.configFile."wlogout/icons".source = ../../../config/wlogout/icons;
+    xdg.configFile."wlogout/style.css".source = ../../../config/wlogout/style.css;
+    xdg.configFile."wlogout/layout".source = ../../../config/wlogout/layout;
 
     #wallpapers
     home.file.".local/bin/walset".source = ../../../config/wallpapers/walset;
