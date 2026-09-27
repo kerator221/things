@@ -8,11 +8,11 @@
   #hyprland configs
   xdg.configFile."hypr".source = ../../config/hypr;
 
+  #kitty config
+  xdg.configFile."kitty/kitty.conf".source = ../../config/kitty/kitty.conf;
+
   #matugen
   xdg.configFile."matugen".source = ../../config/matugen;
-
-  #waybar 
-  xdg.configFile."waybar".source = ../../config/waybar;
 
   #qt6ct 
   xdg.configFile."qt6ct".source = ../../config/qt6ctc;
@@ -22,6 +22,9 @@
 
   #swaync 
   xdg.configFile."swaync".source = ../../config/swaync;
+
+  #waybar 
+  xdg.configFile."waybar".source = ../../config/waybar;
 
   #wlogout 
   xdg.configFile."wlogout".source = ../../config/wlogout;
