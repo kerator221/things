@@ -128,7 +128,7 @@
 
     # KDE
     kdePackages.kdenlive
-    kdePackages.dolphin
+    #kdePackages.dolphin
     kdePackages.xdg-desktop-portal-kde
     kdePackages.kservice
 
