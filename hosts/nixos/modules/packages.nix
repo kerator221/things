@@ -28,6 +28,7 @@
         lz4
         matugen
         jq
+        yazi
 
         swaynotificationcenter
         libnotify
