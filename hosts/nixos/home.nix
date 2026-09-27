@@ -15,7 +15,7 @@
   xdg.configFile."matugen".source = ../../config/matugen;
 
   #qt6ct 
-  xdg.configFile."qt6ct".source = ../../config/qt6ctc;
+  xdg.configFile."qt6ct".source = ../../config/qt6ct;
 
   #rofi 
   xdg.configFile."rofi".source = ../../config/rofi;
