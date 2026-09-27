@@ -11,12 +11,15 @@ if [[ ! -w "$REPO_DIR" ]]; then
 fi
 
 # hardware 
-if [[ ! -f "$REPO_DIR/hardware-configuration.nix" ]]; then 
+if [[ ! -f "$REPO_DIR/hosts/nixos/hardware-configuration.nix" ]]; then 
     echo "generating hardware-configuration"
-    sudo nixos-generate-config --dir "$REPO_DIR"
-    sudo chown "$USER" "$REPO_DIR/hardware-configuration.nix"
+    sudo nixos-generate-config --dir "$REPO_DIR/hosts/nixos"
+    sudo chown "$USER" "$REPO_DIR/hosts/nixos/hardware-configuration.nix"
 else
     echo "using existing hardware-configuration"
 fi
+
+# sets theme to avoid problems after reboot
+walset-backend ~/images/wallpapers/characters/36.jpg
 
 sudo nixos-rebuild switch --flake "path:$REPO_DIR#nixos"
