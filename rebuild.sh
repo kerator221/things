@@ -19,7 +19,4 @@ else
     echo "using existing hardware-configuration"
 fi
 
-# sets theme to avoid problems after reboot
-walset-backend ~/images/wallpapers/characters/36.jpg
-
 sudo nixos-rebuild switch --flake "path:$REPO_DIR#nixos"

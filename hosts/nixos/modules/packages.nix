@@ -1,46 +1,31 @@
 { config, pkgs, ... }:
 
-
 {
     home.packages = with pkgs; [
         #archive things
-        unzip
-        zip
-        p7zip
         xarchiver
-
+        unzip
+        p7zip
+        zip
+        
         #messengers
         telegram-desktop
-        discord
 
         #media
         qbittorrent
-        brave
         qimgv
         mpv
 
         #working programs
         libreoffice
-        obs-studio
 
         #system things
-        awww
-        lz4
-        matugen
-        jq
-        yazi
-
-        swaynotificationcenter
-        libnotify
-        waypaper
-        hyprlock
-        wlogout
-        libsForQt5.qt5ct
-        quickshell
-
-        playerctl
+        haskellPackages.greenclip
         pavucontrol
-        openssl
-        neohtop
+        xwallpaper
+        playerctl
+        fastfetch
+        polybar
+        yazi
     ];
 }

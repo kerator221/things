@@ -1,5 +1,5 @@
 
-{ config, lib, pkgs, username, ... }:
+{ config, lib, pkgs, inputs, username, ... }:
 
 {
   imports =
@@ -10,20 +10,14 @@
   home-manager.backupFileExtension = "backup";
 
   boot.loader = {
-    systemd-boot.enable = false;
-    grub = {
-      enable = true;
-      device = "nodev";
-      efiSupport = true;
-      useOSProber = true;
-    };
+    systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
 
   boot.supportedFilesystems = [ "ntfs" ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  #networking.hostName = nixos;
   networking.networkmanager.enable = true;
 
   # Set your time zone.
@@ -32,10 +26,6 @@
   #nix command support
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "steam"
-    "steam-unwrapped"
-  ];
 
   #hardware settings 
   hardware.graphics.enable = true;
@@ -61,79 +51,38 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
    users.users.${username} = {
      isNormalUser = true;
-     extraGroups = [ "camera" "wheel" ]; # Enable ‘sudo’ for the user.
+     extraGroups = [ "networkmanager" "camera" "wheel" ]; # Enable ‘sudo’ for the user.
      packages = with pkgs; [
        tree
      ];
    };
 
   xdg.mime.enable = true;
-  xdg.menus.enable = true;
-  xdg.portal.enable = true;
-  xdg.portal.xdgOpenUsePortal = true;
   
   environment.localBinInPath = true;   
   environment.etc."xdg/menus/applications.menu".source = "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
-  environment.variables.SUDO_EDITOR = "code --wait";   #makes vscode as sudo editor
-  
-  environment.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "qt6ct";
-    WLR_NO_HARDWARE_CURSORS = "1";
-    NIXOS_OZONE_WL = "1";
-  };   
 
-  programs.gphoto2.enable = true;
   programs.git.enable = true;
-  programs.hyprland.enable = true;
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
-  programs.steam.extraCompatPackages = with pkgs; [
-    proton-ge-bin
-  ];
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
    environment.systemPackages = with pkgs; [
-    # Gaming
-    wineWowPackages.staging
-    winetricks
-    bottles
-    lutris
-
     # Filesystems
     ntfs3g
 
     # Utilities
-    flatpak
     nano
     wget
+    curl
+    brightnessctl
 
     # Development
-    rofi
-    vscode
     git
-    kitty
+    alacritty
 
-    # Hyprland / Desktop
-    waybar
-    fastfetch
-    cliphist
-    wl-clipboard
-    wlr-randr
-    hyprshot
-    hyprpaper
-
-    # KDE
-    kdePackages.kdenlive
-    kdePackages.dolphin
-    kdePackages.xdg-desktop-portal-kde
-    kdePackages.kservice
-
-    # Camera
-    gphoto2fs
+    #fonts
+    siji
+    unifont
    ];
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -142,34 +91,6 @@
     "ru_RU.UTF-8/UTF-8"
     "en_US.UTF-8/UTF-8"
   ];
-
-  fonts = {
-    packages = with pkgs; [
-      nerd-fonts.jetbrains-mono
-      nerd-fonts.fira-code
-      nerd-fonts.iosevka
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-color-emoji
-      liberation_ttf
-      corefonts
-      vista-fonts
-      fira-code
-      fira-code-symbols
-      mplus-outline-fonts.githubRelease
-      dina-font
-      dejavu_fonts
-      proggyfonts
-      geist-font
-    ];
-    fontDir.enable = true;
-    fontconfig.enable = true;
-    fontconfig.defaultFonts = {
-      sansSerif = [ "Liberation Sans" "Noto Sans" "DejaVu Sans" ];
-      serif = [ "Liberation Serif" "Noto Serif" ];
-      monospace = [ "JetBrainsMono Nerd Font" "DejaVu Sans Mono" ];
-    };
-  };
   
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -179,16 +100,30 @@
      enableSSHSupport = true;
    };
 
+  # List services that you want to enable:
+  services.blueman.enable = true;
+  services.gvfs.enable = true;
+  services.usbmuxd.enable = true;
+  services.xserver = {
+    enable = true;
+    displayManager.lightdm.enable = true;
+    xkb = {
+      layout = "us,ru";
+      options = "grp:alt_shift_toggle";
+    };
+    windowManager.i3 = {
+      enable = true;
+      extraPackages = with pkgs; [
+        dmenu
+        i3status
+        i3lock
+      ];
+    };
+  };
+
   virtualisation.vmVariant = {
     users.users.${username}.initialPassword = "test";
   };
 
-  # List services that you want to enable:
-  services.xserver.enable = true;
-  services.blueman.enable = true;
-  services.gvfs.enable = true;
-  services.usbmuxd.enable = true;   
-
   system.stateVersion = "26.05"; # Did you read the comment?
-  
 }

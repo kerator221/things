@@ -2,32 +2,14 @@
 
 {
   imports = [
-    ./modules/symlinks.nix
     ./modules/packages.nix
+    ./modules/i3/config.nix
+    ./modules/i3/greenclip.nix
   ];
 
   home.username = username;
   home.homeDirectory = "/home/${username}";
   home.stateVersion = "26.05";
-
-  #fixing hyprland workspaces (activate) doesnt switch in waybar 
-  #need to add waybar from flake! no solution for now
-
-  qt = {
-    enable = true;
-    platformTheme.name = "qtct";
-  };
-
-  gtk = {
-    enable = true;
-  };
-
-  # AI SLOP FOR LIBADWAITA APPS
-  gtk.gtk4.extraConfig = {
-    Settings = ''
-      gtk-application-prefer-dark-theme=1
-    '';
-  };
 
   xdg.mimeApps = {
     enable = true;
@@ -45,21 +27,6 @@
       "image/webp" = "qimgv.desktop";
     };
   };
-
-  services.hyprpaper = {
-  enable = true;
-  settings = {
-    preload = [
-      "~/images/wallpapers/wallpaper.png"
-    ];
-    wallpaper = [
-      {
-        monitor = "";
-        path = "~/images/wallpapers/wallpaper.png"; 
-      }
-    ];
-  };
-};
 
   programs.home-manager.enable = true;
 }

@@ -13,11 +13,11 @@
       username = "ghosty";
     in 
     {
-      
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      nixosConfigurations = nixpkgs.lib.genAttrs ["nixos"] (hostName: nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs username; };
         modules = [
-          ./hosts/nixos/configuration.nix
+          { networking.hostName = hostName; }
+          ./hosts/${hostName}/configuration.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -26,6 +26,6 @@
             };
           }
         ];
-      };
+      });
     };
 }
