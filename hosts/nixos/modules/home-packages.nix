@@ -24,6 +24,7 @@
         #system things
         haskellPackages.greenclip
         swaynotificationcenter
+        brightnessctl
         pavucontrol
         xwallpaper
         playerctl
