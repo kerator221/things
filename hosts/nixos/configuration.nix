@@ -39,7 +39,7 @@
   #bluetooth
   hardware.bluetooth = {
     enable = true;
-    powerOnBoot = false;
+    powerOnBoot = true;
     settings = {
       General = {
         Experimental = true;
@@ -57,7 +57,10 @@
    };
 
   xdg.mime.enable = true;
-  
+
+  # i3 configuration
+  environment.pathsToLink = ["/libexec"]; # Links /libexec from derivations to /run/current-system/sw
+
   environment.localBinInPath = true;   
   environment.etc."xdg/menus/applications.menu".source = "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
 
@@ -73,7 +76,6 @@
     nano
     wget
     curl
-    brightnessctl
 
     # Development
     git
@@ -112,6 +114,9 @@
     };
     windowManager.i3 = {
       enable = true;
+      extraPackages = with pkgs; [
+        i3lock
+      ];
     };
   };
 
