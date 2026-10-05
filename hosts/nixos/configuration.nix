@@ -112,7 +112,6 @@
       layout = "us,ru";
       options = "grp:alt_shift_toggle";
     };
-    services.xserver.windowManager.i3.enable = false;
   };
 
   virtualisation.vmVariant = {
