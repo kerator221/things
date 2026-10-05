@@ -9,6 +9,7 @@ let
 in {
   imports = [
     ./greenclip.nix
+    ../polybar/config.nix
   ];
 
   xsession.windowManager.i3 = {
@@ -23,17 +24,17 @@ in {
 
       keybindings = {
         #exec rofi
-        "${mod}+Space" = "exec finder";
+        "${mod}+Space" = "exec --no-startup-id finder";
 
-        "${mod}+Enter" = "exec fm";
+        "${mod}+Enter" = "exec --no-startup-id fm";
 
-        "${mod}+v" = "exec clipboard";
+        "${mod}+v" = "exec --no-startup-id clipboard";
 
         #kill window
         "${mod}+q" = "kill";
 
         #exec terminal
-        "${mod}+t" = "exec terminal";
+        "${mod}+t" = "exec --no-startup-id terminal";
         
         #toggle fullscreen
         "${mod}+f" = "fullscreen toggle";
@@ -59,13 +60,6 @@ in {
         "${mod}+Shift+4" = "move container to workspace number 4";
       };
 
-      bars = [
-        {
-          position = "top";
-          statusCommand = "${pkgs.polybar}/bin/polybar";
-        }
-      ];
-
       gaps = {
         inner = 10;
         outer = 0;
@@ -74,6 +68,9 @@ in {
       startup = [
         {
             command = "${pkgs.xwallpaper}/bin/xwallpaper --zoom ${./clouds.jpg}";
+        }
+        {
+            command = "~/.config/polybar/launch.sh";
         }
       ];
     };
