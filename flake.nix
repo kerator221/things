@@ -1,5 +1,5 @@
 {
-  description = "NixOS config";
+  description = "NixOS lenovo config";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";

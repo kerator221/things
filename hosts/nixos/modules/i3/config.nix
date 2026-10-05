@@ -1,8 +1,16 @@
 { config, lib, pkgs, ... }:
 
 let 
+  fm = "alacritty -e yazi";
   mod = "Mod4";
+  terminal = "alacritty";
+  finder = "rofi -show drun";
+  clipboard = '' rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'" ''; #may cause problems
 in {
+  imports = [
+    ./greenclip.nix
+  ];
+
   xsession.windowManager.i3 = {
     enable = true;
     config = {
@@ -14,14 +22,18 @@ in {
       };
 
       keybindings = {
-        #dmenu
-        "${mod}+Space" = "exec ${pkgs.dmenu}/bin/dmenu_run";
+        #exec rofi
+        "${mod}+Space" = "exec finder";
+
+        "${mod}+Enter" = "exec fm";
+
+        "${mod}+v" = "exec clipboard";
 
         #kill window
         "${mod}+q" = "kill";
 
         #exec terminal
-        "${mod}+t" = "exec kitty";
+        "${mod}+t" = "exec terminal";
         
         #toggle fullscreen
         "${mod}+f" = "fullscreen toggle";
@@ -32,9 +44,7 @@ in {
         #reload config
         "${mod}+Shift+r" = "reload";
 
-        "${mod}+h" = "split h"; # horizontal split
-        "${mod}+v" = "split v"; # vertical split
-        "${mod}+e" = "layout toggle split"; # toggle layout
+        "${mod}+l" = "layout toggle split"; # toggle layout
 
         # switch workspace
         "${mod}+1" = "workspace number 1";
@@ -52,7 +62,7 @@ in {
       bars = [
         {
           position = "top";
-          statusCommand = "${pkgs.i3status}/bin/i3status";
+          statusCommand = "${pkgs.polybar}/bin/polybar";
         }
       ];
 
@@ -63,7 +73,7 @@ in {
 
       startup = [
         {
-            command = "${pkgs.xwallpaper}/bin/xwallpaper --zoom ${./wallpaper.jpg}";
+            command = "${pkgs.xwallpaper}/bin/xwallpaper --zoom ${./clouds.jpg}";
         }
       ];
     };

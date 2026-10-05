@@ -13,19 +13,24 @@
 
         #media
         qbittorrent
+        firefox
         qimgv
         mpv
 
         #working programs
         libreoffice
+        vscodium
 
         #system things
         haskellPackages.greenclip
+        swaynotificationcenter
         pavucontrol
         xwallpaper
         playerctl
         fastfetch
+        #hellwal
         polybar
+        rofi
         yazi
     ];
 }
