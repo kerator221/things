@@ -2,6 +2,16 @@
 
 {
   programs.ssh.startAgent = true; 
+  programs.ssh = {
+    enable = true;
+    matchBlocks = {
+      "github.com" = {
+        hostname = "://github.com";
+        port = 443;
+        user = "git";
+      };
+    };
+  };
   programs.git = {
     enable = true;
     settings = {
