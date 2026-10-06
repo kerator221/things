@@ -140,7 +140,10 @@ in {
 
       startup = [
         {
-            command = "${pkgs.xwallpaper}/bin/xwallpaper --zoom ${./clouds.jpg}";
+          command = "${pkgs.xwallpaper}/bin/xwallpaper --zoom ${./clouds.jpg}";
+        }
+        {
+          command = "greenclip daemon";
         }
       ];
     };
