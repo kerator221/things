@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 
 let 
-  fm = "alacritty -e yazi";
+  fm = "kitty -e yazi";
   mod = "Mod4";
-  terminal = "alacritty";
+  terminal = "kitty";
   finder = "rofi -show drun";
   clipboard = '' rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'" ''; #may cause problems
 in {
