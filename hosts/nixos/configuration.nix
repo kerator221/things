@@ -79,7 +79,7 @@
 
     # Development
     git
-    alacritty
+    kitty
 
     #fonts
     siji
