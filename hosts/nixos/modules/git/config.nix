@@ -6,9 +6,10 @@
     enable = true;
     matchBlocks = {
       "github.com" = {
-        hostname = "://github.com";
+        hostname = "ssh.github.com";
         port = 443;
         user = "git";
+	identityFile = "~/.ssh/id_ed25519";
       };
     };
   };
