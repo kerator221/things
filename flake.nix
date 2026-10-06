@@ -11,18 +11,19 @@
     let 
       system = "x86_64-linux";
       username = "ghosty";
+      mail = "ggmail04@mail.ru";
     in 
     {
       nixosConfigurations = nixpkgs.lib.genAttrs ["nixos"] (hostName: nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs username; };
+        specialArgs = { inherit inputs username mail; };
         modules = [
           { networking.hostName = hostName; }
           ./hosts/${hostName}/configuration.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = { config, pkgs, lib, ... }: import ./hosts/nixos/home.nix {
-              inherit config pkgs lib username;
+            home-manager.users.${username} = { config, pkgs, lib, ... }: import ./hosts/${hostName}/home.nix {
+              inherit config pkgs lib username mail;
             };
           }
         ];

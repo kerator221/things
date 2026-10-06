@@ -24,9 +24,9 @@ in {
 
       keybindings = {
         #exec rofi
-        "${mod}+Space" = "exec --no-startup-id ${finder}";
+        "${mod}+space" = "exec --no-startup-id ${finder}";
 
-        "${mod}+Enter" = "exec --no-startup-id ${fm}";
+        "${mod}+enter" = "exec --no-startup-id ${fm}";
 
         "${mod}+v" = "exec --no-startup-id ${clipboard}";
 
