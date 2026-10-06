@@ -31,6 +31,7 @@
         fastfetch
         #hellwal
         polybar
+        i3status
         i3lock
         rofi
         yazi
