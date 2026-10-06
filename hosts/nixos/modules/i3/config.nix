@@ -5,7 +5,7 @@ let
   mod = "Mod4";
   terminal = "kitty";
   finder = "rofi -show drun";
-  clipboard = '' rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'" ''; #may cause problems
+  clipboard = '' rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}' ''; #may cause problems
 in {
   imports = [
     ./greenclip.nix
@@ -24,17 +24,17 @@ in {
 
       keybindings = {
         #exec rofi
-        "${mod}+Space" = "exec --no-startup-id finder";
+        "${mod}+Space" = "exec --no-startup-id ${finder}";
 
-        "${mod}+Enter" = "exec --no-startup-id fm";
+        "${mod}+Enter" = "exec --no-startup-id ${fm}";
 
-        "${mod}+v" = "exec --no-startup-id clipboard";
+        "${mod}+v" = "exec --no-startup-id ${clipboard}";
 
         #kill window
         "${mod}+q" = "kill";
 
         #exec terminal
-        "${mod}+t" = "exec --no-startup-id terminal";
+        "${mod}+t" = "exec --no-startup-id ${terminal}";
         
         #toggle fullscreen
         "${mod}+f" = "fullscreen toggle";
