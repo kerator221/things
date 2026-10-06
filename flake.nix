@@ -22,9 +22,11 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = { config, pkgs, lib, ... }: import ./hosts/${hostName}/home.nix {
-              inherit config pkgs lib username mail;
-            };
+            #home-manager.users.${username} = { config, pkgs, lib, ... }: import ./hosts/${hostName}/home.nix {
+            #  inherit config pkgs lib username mail;
+            #};
+            home-manager.extraSpecialArgs = { inherit username mail; };
+            home-manager.users.${username} = import ./hosts/${hostName}/home.nix;
           }
         ];
       });
