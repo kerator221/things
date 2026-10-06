@@ -1,11 +1,22 @@
 { config, lib, pkgs, ... }:
 
 let 
-  fm = "kitty -e yazi";
+#shortcuts
+  fm = '' sh -c "kitty -e yazi" '';
   mod = "Mod4";
   terminal = "kitty";
   finder = "rofi -show drun";
   clipboard = '' rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}' ''; #may cause problems
+` 
+#colors
+  bgcolor =      "#523d64";
+  "in-bgcolor" = "#363636";
+  text =         "#ffffff";
+  u-bgcolor =    "#ff0000";
+  indicator =    "#a8a3c1";
+  "in-text" =    "#969696";
+  focused-ws =   "#523d6480";
+  bar-color =    "#523d640D";
 in {
   imports = [
     ./greenclip.nix
@@ -22,12 +33,40 @@ in {
         size = 10.0;
       };
 
+      colors = {
+        focused = {
+          border = ${bgcolor};
+          background = ${bgcolor};
+          text = ${text};
+        };
+
+        focusedInactive = {
+          border = ${in-bgcolor};
+          background = ${in-bgcolor};
+          text = ${in-text};
+        };
+
+        unfocused = {
+          border = ${in-bgcolor};
+          background = ${in-bgcolor};
+          text = ${in-text};
+        };
+
+        urgent = {
+          border = ${u-bgcolor};
+          background = ${u-bgcolor};
+          text = ${text};
+        };
+      };
+
       keybindings = {
         #exec rofi
         "${mod}+space" = "exec --no-startup-id ${finder}";
 
-        "${mod}+enter" = "exec --no-startup-id ${fm}";
+        #exec yazi in terminal 
+        "${mod}+w" = "exec --no-startup-id ${fm}";
 
+        #open clipboard
         "${mod}+v" = "exec --no-startup-id ${clipboard}";
 
         #kill window
@@ -65,12 +104,43 @@ in {
         outer = 0;
       };
 
+      bars = [
+        {
+          position = "bottom";
+          statusCommand = "${pkgs.i3status}/bin/i3status";
+          i3barCommand = "${pkgs.i3}/bin/i3bar --transparency";
+          trayOutput = "none";
+          colors = {
+            #background = ${bgcolor};
+            background = ${bar-color};
+            separator = "#191919";
+
+            focused_workspace = {
+              #border = ${bgcolor};
+              #background = ${bgcolor};
+              border = ${focused-ws};
+              background = ${focused-ws};
+              text = ${text};
+            };
+
+            inactive_workspace = {
+              border = ${in-bgcolor};
+              background = ${in-bgcolor};
+              text = ${text};
+            };
+
+            urgent_workspace = {
+              border = ${u-bgcolor};
+              background = ${u-bgcolor};
+              text = ${text};
+            };
+          };
+        }
+      ];
+
       startup = [
         {
             command = "${pkgs.xwallpaper}/bin/xwallpaper --zoom ${./clouds.jpg}";
-        }
-        {
-            command = "~/.config/polybar/launch.sh";
         }
       ];
     };
