@@ -20,7 +20,6 @@ let
 in {
   imports = [
     ./greenclip.nix
-    ../polybar/config.nix
   ];
 
   xsession.windowManager.i3 = {
@@ -35,27 +34,35 @@ in {
 
       colors = {
         focused = {
-          border = ${bgcolor};
-          background = ${bgcolor};
-          text = ${text};
+          border = "${bgcolor}";
+          background = "${bgcolor}";
+          text = "${text}";
+          indicator = "${bgcolor}";
+          childBorder = "${bgcolor}";
         };
 
         focusedInactive = {
-          border = ${in-bgcolor};
-          background = ${in-bgcolor};
-          text = ${in-text};
+          border = "${in-bgcolor}";
+          background = "${in-bgcolor}";
+          text = "${in-text}";
+          indicator = "${in-bgcolor}";
+          childBorder = "${in-bgcolor}";
         };
 
         unfocused = {
-          border = ${in-bgcolor};
-          background = ${in-bgcolor};
-          text = ${in-text};
+          border = "${in-bgcolor}";
+          background = "${in-bgcolor}";
+          text = "${in-text}";
+          indicator = "${in-bgcolor}";
+          childBorder = "${in-bgcolor}";
         };
 
         urgent = {
-          border = ${u-bgcolor};
-          background = ${u-bgcolor};
-          text = ${text};
+          border = "${u-bgcolor}";
+          background = "${u-bgcolor}";
+          text = "${text}";
+          indicator = "${u-bgcolor}";
+          childBorder = "${u-bgcolor}";
         };
       };
 
@@ -108,31 +115,31 @@ in {
         {
           position = "bottom";
           statusCommand = "${pkgs.i3status}/bin/i3status";
-          i3barCommand = "${pkgs.i3}/bin/i3bar --transparency";
+          command = "${pkgs.i3}/bin/i3bar --transparency";
           trayOutput = "none";
           colors = {
             #background = ${bgcolor};
-            background = ${bar-color};
+            background = "${bar-color}";
             separator = "#191919";
 
-            focused_workspace = {
+            focusedWorkspace = {
               #border = ${bgcolor};
               #background = ${bgcolor};
-              border = ${focused-ws};
-              background = ${focused-ws};
-              text = ${text};
+              border = "${focused-ws}";
+              background = "${focused-ws}";
+              text = "${text}";
             };
 
-            inactive_workspace = {
-              border = ${in-bgcolor};
-              background = ${in-bgcolor};
-              text = ${text};
+            inactiveWorkspace = {
+              border = "${in-bgcolor}";
+              background = "${in-bgcolor}";
+              text = "${text}";
             };
 
-            urgent_workspace = {
-              border = ${u-bgcolor};
-              background = ${u-bgcolor};
-              text = ${text};
+            urgentWorkspace = {
+              border = "${u-bgcolor}";
+              background = "${u-bgcolor}";
+              text = "${text}";
             };
           };
         }

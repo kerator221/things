@@ -1,7 +1,7 @@
-{ config, pkgs, mail, username ... }:
+{ config, pkgs, mail, username, ... }:
 
 {
-  programs.ssh.startAgent = true; 
+  services.ssh-agent.enable = true; 
   programs.ssh = {
     enable = true;
     matchBlocks = {
@@ -16,8 +16,8 @@
     enable = true;
     settings = {
       user = {
-        name = ${username};
-        email = ${mail};
+        name = "${username}";
+        email = "${mail}";
       };
       alias = {
         c = "commit";
