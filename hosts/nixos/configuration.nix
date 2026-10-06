@@ -78,8 +78,8 @@
     curl
 
     # Development
-    git
-    kitty
+    #git
+    #kitty
 
     #fonts
     siji
