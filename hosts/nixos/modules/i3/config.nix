@@ -7,7 +7,7 @@ let
   terminal = "kitty";
   finder = "rofi -show drun";
   clipboard = '' rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}' ''; #may cause problems
-` 
+ 
 #colors
   bgcolor =      "#523d64";
   "in-bgcolor" = "#363636";
