@@ -11,6 +11,12 @@
         user = "git";
 	identityFile = "~/.ssh/id_ed25519";
       };
+      "gitlab.com" = {
+        hostname = "altssh.gitlab.com";
+        port = 443;
+        user = "git";
+        identityFile = "~/.ssh/id_ed25519";
+      };
     };
   };
   programs.git = {
