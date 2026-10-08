@@ -2,10 +2,10 @@
 
 {
   imports = [
-    ./modules/home-packages.nix
-    ./modules/i3/config.nix
-    ./modules/kitty/config.nix
-    ./modules/git/config.nix
+    ../../modules/home-packages.nix
+    ../../modules/i3/config.nix
+    ../../modules/kitty/config.nix
+    ../../modules/git/config.nix
   ];
 
   home.username = username;
