@@ -1,5 +1,5 @@
 
-{ config, lib, pkgs, username, ... }:
+{ config, lib, pkgs, inputs, username, ... }:
 
 {
   imports =
@@ -23,7 +23,6 @@
   boot.supportedFilesystems = [ "ntfs" ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true;
 
   # Set your time zone.
@@ -181,6 +180,10 @@
 
   virtualisation.vmVariant = {
     users.users.${username}.initialPassword = "test";
+
+    home-manager.sharedModules = [
+      inputs.stylix.homeManagerModules.stylix
+    ];
   };
 
   # List services that you want to enable:
@@ -190,5 +193,4 @@
   services.usbmuxd.enable = true;   
 
   system.stateVersion = "26.05"; # Did you read the comment?
-  
 }

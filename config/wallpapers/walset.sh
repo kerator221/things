@@ -2,7 +2,9 @@
 
 # Directory containing wallpapers
 WALL_DIR="$HOME/images/wallpapers"
-WALLPAPER=$(echo -e "cars\ncharacters\nlandscapes" | rofi -config $HOME/.config/rofi/mini.rasi -dmenu -i -p "Select:")
+cd "$WALL_DIR"
+FOLDERS=$(ls -d */ | sed 's|/||g')
+WALLPAPER=$(echo -e "$FOLDERS" | rofi -config $HOME/.config/rofi/mini.rasi -dmenu -i -p "Select:")
 
 [[ -z "$WALLPAPER" ]] && exit
 

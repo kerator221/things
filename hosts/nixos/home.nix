@@ -13,6 +13,20 @@
   #fixing hyprland workspaces (activate) doesnt switch in waybar 
   #need to add waybar from flake! no solution for now
 
+  #stylix = {
+  #  enable = true;
+  #  autoEnable = true;
+  #  image = "/tmp/current_wallpaper";
+  #  colorGeneration.scheme = "vibrant";
+  #  colorGeneration.polarity = "dark";
+  #  opacity = {
+  #    applications = 0.8;
+  #    popups = 0.8;
+  #    desktop = 0.8;
+  #    terminal = 0.8;
+  #  };
+  #};
+
   qt = {
     enable = true;
     platformTheme.name = "qtct";
